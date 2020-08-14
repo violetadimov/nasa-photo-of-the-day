@@ -2,15 +2,13 @@ import React from "react";
 
 
 function Photos(props) {
-    const { photos } = props
-    function photoOfTheDay(){
-        photos.map((photo) => {
-          return <img src={photo.img_src} alt='' key={photo.id}></img>
-        })
-      }
+    // const { photos } = props
+
     return (
         <div className='image-container'>
-            {photoOfTheDay}
+            <h1> {props.data.title}</h1>
+            <img src={props.data.hdurl} alt='' />
+            <p>{props.data.explanation}</p>
         </div>
     )
 }

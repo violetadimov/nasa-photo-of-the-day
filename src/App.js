@@ -4,15 +4,15 @@ import axios from 'axios'
 import Photos from './components/Photos'
 
 function App() {
-  const url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY'
+  const url = 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY'
   const [photos, setPhotos] = useState([])
 
   useEffect(() => {
     axios.get(url) 
       .then(response => {
-        debugger
+        //debugger
         console.log(response.data)
-        setPhotos(response.data.photos)
+        setPhotos(response.data)
       })
       .catch(error => {
         console.log(error)
@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="App">
       <div className='photos'>
-        <Photos photos={photos}/>
+        <Photos data={photos}/>
       </div>
     </div>
   );
